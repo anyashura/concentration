@@ -8,10 +8,19 @@
 import Foundation
 
 class Concentration {
+
+    var score = 0
+    var facedCards = [Int]()
+    var flipCount = 0
+    var dateClick: Date?
+    var timePenalty: Int {
+        return min(dateClick?.sinceNow ?? 0, ScoreCount.penalty.rawValue)
+    }
+
     private (set) var cards = [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex : Int? = nil
+            var foundIndex: Int?
             for index in cards.indices {
                 if cards[index].isFaceUp {
                     if foundIndex == nil {
@@ -29,15 +38,7 @@ class Concentration {
             }
         }
     }
-    
-    var score = 0
-    var facedCards = [Int]()
-    var flipCount = 0
-    var dateClick : Date?
-    var timePenalty : Int {
-        return min(dateClick?.sinceNow ?? 0, 10)
-    }
-    
+
     func startNewGame() {
         score = 0
         for index in cards.indices {
@@ -45,24 +46,24 @@ class Concentration {
             cards[index].isFaceUp = false
         }
         cards.shuffle()
-        facedCards = []
+        facedCards.removeAll()
     }
-    
+
     func chooseCard (at index: Int) {
-        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)) : choosen index not in cards" )
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): choosen index not in cards" )
         flipCount += 1
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
-                    score += 20
+                    score += ScoreCount.win.rawValue
                 } else {
                     if facedCards.contains(index) {
-                        score -= 10
+                        score -= ScoreCount.penalty.rawValue
                     }
                     if facedCards.contains(matchIndex) {
-                        score -= 10
+                        score -= ScoreCount.penalty.rawValue
                     }
                     facedCards.append(index)
                     facedCards.append(matchIndex)
@@ -72,23 +73,23 @@ class Concentration {
                 indexOfOneAndOnlyFaceUpCard = index
             }
             score -= timePenalty
+            print(timePenalty)
             dateClick = Date()
         }
     }
-    
-    init(numberOfPairsOfCards : Int) {
+
+    init(numberOfPairsOfCards: Int) {
         assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)) : must have at least one pair of card")
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
-            cards += [card,card]
+            cards += [card, card]
         }
         cards.shuffle()
     }
-}
 
-extension Date {
-    var sinceNow : Int {
-        return -Int(self.timeIntervalSinceNow)
+    enum ScoreCount: Int {
+        case penalty = 10
+        case win = 20
     }
-}
 
+}
