@@ -25,6 +25,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        newGameButton.setTitle("New game", for: .normal)
+        updateThemeColor()
+        updateTitle()
         updateViewFromModel()
     }
 
@@ -32,7 +35,8 @@ class ViewController: UIViewController {
         emoji.removeAll()
         currentTheme = allThemes.randomElement()!
         emojiChoices = currentTheme.emojies
-        updateTheme()
+        updateThemeColor()
+        updateTitle()
         game.flipCount = 0
         game.startNewGame()
         updateViewFromModel()
@@ -49,17 +53,17 @@ class ViewController: UIViewController {
         }
     }
 
-    private func updateTheme() {
+    private func updateThemeColor() {
         flipCountLabel.textColor = currentTheme.cardColor
-        titleLabel.text = currentTheme.nameOfTheme
         titleLabel.textColor = currentTheme.cardColor
         view.backgroundColor = currentTheme.backroundColor
         score.textColor = currentTheme.cardColor
-        newGameButton.setTitle("New game", for: .normal)
         newGameButton.backgroundColor = currentTheme.cardColor
         newGameButton.setTitleColor(currentTheme.backroundColor, for: .normal)
-        score.text = "Score: \(game.score)"
-        flipCountLabel.text = "Flips: \(game.flipCount)"
+    }
+
+    private func updateTitle() {
+        titleLabel.text = currentTheme.nameOfTheme
     }
 
     private func updateViewFromModel() {
@@ -82,9 +86,9 @@ class ViewController: UIViewController {
                     button.backgroundColor = currentTheme.cardColor
                 }
             }
-            updateTheme()
+            score.text = "Score: \(game.score)"
+            flipCountLabel.text = "Flips: \(game.flipCount)"
         }
-
     }
 
     private func attributedName (for card: Card, fontSize: CGFloat) -> NSAttributedString {

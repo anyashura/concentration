@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B53128F727F637CD00FDB7C6 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53128F627F637CD00FDB7C6 /* Int+Extension.swift */; };
-		B53128F927F6382300FDB7C6 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53128F827F6382300FDB7C6 /* Date+extension.swift */; };
 		B53128FD27F6402C00FDB7C6 /* ThemeOfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53128FC27F6402C00FDB7C6 /* ThemeOfGame.swift */; };
 		B55EE9C627F2458300852CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9C527F2458300852CC7 /* AppDelegate.swift */; };
 		B55EE9C827F2458300852CC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9C727F2458300852CC7 /* SceneDelegate.swift */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		B53128F627F637CD00FDB7C6 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
-		B53128F827F6382300FDB7C6 /* Date+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extension.swift"; sourceTree = "<group>"; };
 		B53128FC27F6402C00FDB7C6 /* ThemeOfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeOfGame.swift; sourceTree = "<group>"; };
 		B55EE9C227F2458300852CC7 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55EE9C527F2458300852CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				B53128F627F637CD00FDB7C6 /* Int+Extension.swift */,
-				B53128F827F6382300FDB7C6 /* Date+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,7 +195,6 @@
 				B55EE9C627F2458300852CC7 /* AppDelegate.swift in Sources */,
 				B55EE9C827F2458300852CC7 /* SceneDelegate.swift in Sources */,
 				B53128FD27F6402C00FDB7C6 /* ThemeOfGame.swift in Sources */,
-				B53128F927F6382300FDB7C6 /* Date+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
