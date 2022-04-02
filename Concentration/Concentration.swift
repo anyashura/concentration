@@ -41,32 +41,30 @@ final class Concentration {
         facedCards.removeAll()
     }
 
-    // разбить на функции Я бы сделал у модели методы: новая игра, выбрана карта х, покажи счёт, покажи перевороты и т.д. и обращался бы к ним из viewController, а в VC пусть занимается отображением данных и обработкой действия пользователя
     func chooseCard (at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): choosen index not in cards" )
         flipCount += 1
-        if !cards[index].isMatched {
-            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
-                if cards[matchIndex] == cards[index] {
-                    cards[matchIndex].isMatched = true
-                    cards[index].isMatched = true
-                    score += ScoreCount.win.rawValue
-                } else {
-                    if facedCards.contains(index) {
-                        score -= ScoreCount.penalty.rawValue
-                    }
-                    if facedCards.contains(matchIndex) {
-                        score -= ScoreCount.penalty.rawValue
-                    }
-                    facedCards.append(index)
-                    facedCards.append(matchIndex)
-                }
-                cards[index].isFaceUp = true
+        guard !cards[index].isMatched else { return indexOfOneAndOnlyFaceUpCard = index }
+        if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+            if cards[matchIndex] == cards[index] {
+                cards[matchIndex].isMatched = true
+                cards[index].isMatched = true
+                score += ScoreCount.win.rawValue
             } else {
-                indexOfOneAndOnlyFaceUpCard = index
+                if facedCards.contains(index) {
+                    score -= ScoreCount.penalty.rawValue
+                }
+                if facedCards.contains(matchIndex) {
+                    score -= ScoreCount.penalty.rawValue
+                }
+                facedCards.append(index)
+                facedCards.append(matchIndex)
             }
-            score -= timePenalty
-            dateClick = Date()
+            cards[index].isFaceUp = true
+        } else {
+            indexOfOneAndOnlyFaceUpCard = index
+        score -= timePenalty
+        dateClick = Date()
         }
     }
 
