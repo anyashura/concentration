@@ -30,7 +30,9 @@ final class Concentration {
     }
 
     func startNewGame() {
+        flipCount = 0
         score = 0
+        flipCount = 0
         for index in cards.indices {
             cards[index].isMatched = false
             cards[index].isFaceUp = false
@@ -39,7 +41,7 @@ final class Concentration {
         facedCards.removeAll()
     }
 
-    // разбить на функции
+    // разбить на функции Я бы сделал у модели методы: новая игра, выбрана карта х, покажи счёт, покажи перевороты и т.д. и обращался бы к ним из viewController, а в VC пусть занимается отображением данных и обработкой действия пользователя
     func chooseCard (at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): choosen index not in cards" )
         flipCount += 1

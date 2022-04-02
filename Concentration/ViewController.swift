@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         emojiChoices = currentTheme.emojies
         updateThemeColor()
         updateTitle()
-        game.flipCount = 0
         game.startNewGame()
         updateViewFromModel()
         for index in cardButtons.indices {
