@@ -9,6 +9,7 @@ import Foundation
 
 struct Card {
 
+    var title: String = "a"
     var isFaceUp = false
     var isMatched = false
     private static var identifierFactory = 0

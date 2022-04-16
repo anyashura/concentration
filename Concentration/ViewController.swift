@@ -9,14 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var numberOfPairsOfCards: Int {
-        return (cardButtons.count + 1) / 2
+    enum Constant {
+        static let fontSize = 28.0
+        static let numberOfPairsOfCards = 8
     }
 
-    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private var emoji = [Card: String]()
-    private lazy var currentTheme = allThemes.randomElement()!
-    private lazy var emojiChoices = currentTheme.emojies
+    private lazy var game = Concentration(numberOfPairsOfCards: Constant.numberOfPairsOfCards)
+
     @IBOutlet private weak var newGameButton: UIButton!
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private weak var score: UILabel!
@@ -25,24 +24,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViewFromModel()
         newGameButton.setTitle("New game", for: .normal)
         updateThemeColor()
-        updateTitle()
-        updateViewFromModel()
     }
 
     @IBAction private func newGame(_ sender: UIButton) {
-        emoji.removeAll()
-        currentTheme = allThemes.randomElement()!
-        emojiChoices = currentTheme.emojies
-        updateThemeColor()
-        updateTitle()
         game.startNewGame()
+        updateThemeColor()
         updateViewFromModel()
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
-            button.isEnabled = true
-        }
+        _ = cardButtons.map { $0.isEnabled = true }
     }
 
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -53,59 +44,45 @@ class ViewController: UIViewController {
     }
 
     private func updateThemeColor() {
-        flipCountLabel.textColor = currentTheme.cardColor
-        titleLabel.textColor = currentTheme.cardColor
-        view.backgroundColor = currentTheme.backroundColor
-        score.textColor = currentTheme.cardColor
-        newGameButton.backgroundColor = currentTheme.cardColor
-        newGameButton.setTitleColor(currentTheme.backroundColor, for: .normal)
-    }
-
-    private func updateTitle() {
-        titleLabel.text = currentTheme.nameOfTheme
+        // берём данные из Источника, который знает как выглядят темы – легко заменить
+        flipCountLabel.textColor = game.currentTheme.cardColor
+        titleLabel.textColor = game.currentTheme.cardColor
+        view.backgroundColor = game.currentTheme.backroundColor
+        score.textColor = game.currentTheme.cardColor
+        newGameButton.backgroundColor = game.currentTheme.cardColor
+        newGameButton.setTitleColor(game.currentTheme.backroundColor, for: .normal)
+        titleLabel.text = game.currentTheme.nameOfTheme
     }
 
     private func updateViewFromModel() {
+
         for index in cardButtons.indices {
             let button = cardButtons[index]
-            let card = game.cards[index]
+            var card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: .normal)
-                button.setAttributedTitle(attributedName(for: card, fontSize: Constant.fontSize), for: .normal)
+                card.title = game.emoji(for: card)
+//                button.setTitle(card.title, for: .normal)
+                button.setAttributedTitle(title(for: card.title, fontSize: Constant.fontSize), for: .normal)
                 button.backgroundColor =  UIColor.white
                 button.isEnabled = false
             } else {
-                button.setTitle("", for: UIControl.State.normal)
+                button.setTitle("", for: .normal)
                 button.setAttributedTitle(NSAttributedString(""), for: .normal)
                 button.isEnabled = true
-                if card.isMatched {
-                    button.backgroundColor = UIColor.clear
-                    button.isEnabled = false
-                } else {
-                    button.backgroundColor = currentTheme.cardColor
-                }
+
+                button.backgroundColor = card.isMatched ? .clear : game.currentTheme.cardColor
+                button.isEnabled = card.isMatched ? false : true
             }
+
             score.text = "Score: \(game.score)"
             flipCountLabel.text = "Flips: \(game.flipCount)"
         }
     }
 
-    private func attributedName (for card: Card, fontSize: CGFloat) -> NSAttributedString {
+    private func title(for emoji: String, fontSize: CGFloat) -> NSAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
         ]
-        return NSAttributedString(string: emoji(for: card), attributes: attributes)
+        return NSAttributedString(string: emoji, attributes: attributes)
     }
-
-    private func emoji(for card: Card) -> String {
-        if emoji[card] == nil, emojiChoices.count > 0 {
-            emoji[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
-        }
-        return emoji[card] ?? "?"
-    }
-
-    enum Constant {
-       static let fontSize = 28.0
-    }
-
 }

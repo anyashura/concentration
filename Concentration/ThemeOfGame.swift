@@ -12,42 +12,45 @@ struct ThemeOfGame {
     var emojies: [String]
     var backroundColor: UIColor
     var cardColor: UIColor
+
 }
 
-let allThemes: [ThemeOfGame] = [
-    ThemeOfGame(
-        nameOfTheme: "Transport",
-        emojies: ["🚗", "🚖", "🛺", "🚤", "🦼", "✈️", "🪝", "🏍"],
-        backroundColor: .blue,
-        cardColor: .darkGray),
-    ThemeOfGame(
-        nameOfTheme: "Insects",
-        emojies: ["🪰", "🪲", "🦟", "🕷", "🐞", "🐛", "🦋", "🐝"],
-        backroundColor: .green,
-        cardColor: .yellow),
-    ThemeOfGame(
-        nameOfTheme: "Figures",
-        emojies: ["💟", "🈶", "🉐", "❇️", "🏧", "1️⃣", "🟪", "🟨"],
-        backroundColor: .systemPink,
-        cardColor: .systemIndigo),
-    ThemeOfGame(
-        nameOfTheme: "Any",
-        emojies: ["⚒", "💣", "🔫", "💊", "🧬", "🦠", "🚬", "⏱"],
-        backroundColor: .purple,
-        cardColor: .systemMint),
-    ThemeOfGame(
-        nameOfTheme: "Fruits",
-        emojies: ["🥑", "🥭", "🌶", "🍌", "🥥", "🥝", "🌽", "🥕"],
-        backroundColor: .orange,
-        cardColor: .purple),
-    ThemeOfGame(
-        nameOfTheme: "Flags",
-        emojies: ["🏴", "🏁", "🇦🇲", "🇨🇲", "🇨🇬", "🇰🇾", "🇨🇮", "🇩🇪"],
-        backroundColor: .magenta,
-        cardColor: .brown),
-    ThemeOfGame(
-        nameOfTheme: "Smiles",
-        emojies: ["😀", "🥶", "🤬", "😈", "👹", "🤢", "🤖", "🤡"],
-        backroundColor: .gray,
-        cardColor: .red)
-]
+struct Themes {
+    let allThemes: [ThemeOfGame] = [
+        ThemeOfGame(
+            nameOfTheme: "Transport",
+            emojies: ["🚗", "🚖", "🛺", "🚤", "🦼", "✈️", "🪝", "🏍"],
+            backroundColor: .blue,
+            cardColor: .darkGray),
+        ThemeOfGame(
+            nameOfTheme: "Insects",
+            emojies: ["🪰", "🪲", "🦟", "🕷", "🐞", "🐛", "🦋", "🐝"],
+            backroundColor: .green,
+            cardColor: .yellow),
+        ThemeOfGame(
+            nameOfTheme: "Figures",
+            emojies: ["💟", "🈶", "🉐", "❇️", "🏧", "1️⃣", "🟪", "🟨"],
+            backroundColor: .systemPink,
+            cardColor: .systemIndigo),
+        ThemeOfGame(
+            nameOfTheme: "Any",
+            emojies: ["⚒", "💣", "🔫", "💊", "🧬", "🦠", "🚬", "⏱"],
+            backroundColor: .purple,
+            cardColor: .systemMint),
+        ThemeOfGame(
+            nameOfTheme: "Fruits",
+            emojies: ["🥑", "🥭", "🌶", "🍌", "🥥", "🥝", "🌽", "🥕"],
+            backroundColor: .orange,
+            cardColor: .purple),
+        ThemeOfGame(
+            nameOfTheme: "Flags",
+            emojies: ["🏴", "🏁", "🇦🇲", "🇨🇲", "🇨🇬", "🇰🇾", "🇨🇮", "🇩🇪"],
+            backroundColor: .magenta,
+            cardColor: .brown),
+        ThemeOfGame(
+            nameOfTheme: "Smiles",
+            emojies: ["😀", "🥶", "🤬", "😈", "👹", "🤢", "🤖", "🤡"],
+            backroundColor: .gray,
+            cardColor: .red)
+    ]
+}

@@ -9,9 +9,18 @@ import Foundation
 
 final class Concentration {
 
+    enum ScoreCount: Int {
+        case penalty = 10
+        case win = 20
+    }
+
+    var theme = Themes()
     var score = 0
     var facedCards = [Int]()
     var flipCount = 0
+    var emojies = [Card: String]()
+    var currentTheme = Themes().allThemes.randomElement()!
+    lazy var emojiChoices = currentTheme.emojies
 
     private var dateClick: Date?
     private var timePenalty: Int {
@@ -32,13 +41,15 @@ final class Concentration {
     func startNewGame() {
         flipCount = 0
         score = 0
-        flipCount = 0
+        facedCards.removeAll()
+        emojies.removeAll()
+        currentTheme = Themes().allThemes.randomElement()!
+        emojiChoices = currentTheme.emojies
         for index in cards.indices {
             cards[index].isMatched = false
             cards[index].isFaceUp = false
         }
         cards.shuffle()
-        facedCards.removeAll()
     }
 
     func chooseCard (at index: Int) {
@@ -63,9 +74,16 @@ final class Concentration {
             cards[index].isFaceUp = true
         } else {
             indexOfOneAndOnlyFaceUpCard = index
+        }
         score -= timePenalty
         dateClick = Date()
+    }
+
+    func emoji(for card: Card) -> String {
+        if emojies[card] == nil, emojiChoices.count > 0 {
+            emojies[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
+        return emojies[card] ?? "?"
     }
 
     private func foundIndex() -> Int? {
@@ -88,11 +106,6 @@ final class Concentration {
             cards += [card, card]
         }
         cards.shuffle()
-    }
-
-    enum ScoreCount: Int {
-        case penalty = 10
-        case win = 20
     }
 
 }
