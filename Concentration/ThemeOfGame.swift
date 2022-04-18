@@ -53,4 +53,11 @@ struct Themes {
             backroundColor: .gray,
             cardColor: .red)
     ]
+    let defaultTheme: ThemeOfGame =
+        ThemeOfGame(
+            nameOfTheme: "Transport",
+            emojies: ["🚗", "🚖", "🛺", "🚤", "🦼", "✈️", "🪝", "🏍"],
+            backroundColor: .blue,
+            cardColor: .darkGray)
+
 }

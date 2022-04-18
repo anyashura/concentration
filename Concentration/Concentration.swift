@@ -19,7 +19,7 @@ final class Concentration {
     var facedCards = [Int]()
     var flipCount = 0
     var emojies = [Card: String]()
-    var currentTheme = Themes().allThemes.randomElement()!
+    var currentTheme = Themes().defaultTheme
     lazy var emojiChoices = currentTheme.emojies
 
     private var dateClick: Date?
@@ -43,7 +43,7 @@ final class Concentration {
         score = 0
         facedCards.removeAll()
         emojies.removeAll()
-        currentTheme = Themes().allThemes.randomElement()!
+        currentTheme = Themes().allThemes.randomElement() ?? Themes().defaultTheme
         emojiChoices = currentTheme.emojies
         for index in cards.indices {
             cards[index].isMatched = false
@@ -80,6 +80,7 @@ final class Concentration {
     }
 
     func emoji(for card: Card) -> String {
+
         if emojies[card] == nil, emojiChoices.count > 0 {
             emojies[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }

@@ -24,6 +24,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        game.currentTheme = Themes().allThemes.randomElement() ?? Themes().defaultTheme
         updateViewFromModel()
         newGameButton.setTitle("New game", for: .normal)
         updateThemeColor()
@@ -44,7 +45,6 @@ class ViewController: UIViewController {
     }
 
     private func updateThemeColor() {
-        // берём данные из Источника, который знает как выглядят темы – легко заменить
         flipCountLabel.textColor = game.currentTheme.cardColor
         titleLabel.textColor = game.currentTheme.cardColor
         view.backgroundColor = game.currentTheme.backroundColor
@@ -61,7 +61,6 @@ class ViewController: UIViewController {
             var card = game.cards[index]
             if card.isFaceUp {
                 card.title = game.emoji(for: card)
-//                button.setTitle(card.title, for: .normal)
                 button.setAttributedTitle(title(for: card.title, fontSize: Constant.fontSize), for: .normal)
                 button.backgroundColor =  UIColor.white
                 button.isEnabled = false
