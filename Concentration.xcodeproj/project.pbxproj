@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53128F727F637CD00FDB7C6 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53128F627F637CD00FDB7C6 /* Int+Extension.swift */; };
+		B53128FD27F6402C00FDB7C6 /* ThemeOfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53128FC27F6402C00FDB7C6 /* ThemeOfGame.swift */; };
 		B55EE9C627F2458300852CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9C527F2458300852CC7 /* AppDelegate.swift */; };
 		B55EE9C827F2458300852CC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9C727F2458300852CC7 /* SceneDelegate.swift */; };
 		B55EE9CA27F2458300852CC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9C927F2458300852CC7 /* ViewController.swift */; };
-		B55EE9CD27F2458300852CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55EE9CB27F2458300852CC7 /* Main.storyboard */; };
 		B55EE9CF27F2458300852CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B55EE9CE27F2458300852CC7 /* Assets.xcassets */; };
 		B55EE9D227F2458300852CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55EE9D027F2458300852CC7 /* LaunchScreen.storyboard */; };
+		B55EE9DA27F257A000852CC7 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9D927F257A000852CC7 /* Concentration.swift */; };
+		B55EE9DC27F257AF00852CC7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE9DB27F257AF00852CC7 /* Card.swift */; };
+		B55EE9DE27F2581400852CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55EE9DD27F2581400852CC7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B53128F627F637CD00FDB7C6 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		B53128FC27F6402C00FDB7C6 /* ThemeOfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeOfGame.swift; sourceTree = "<group>"; };
 		B55EE9C227F2458300852CC7 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55EE9C527F2458300852CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B55EE9C727F2458300852CC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B55EE9C927F2458300852CC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B55EE9CC27F2458300852CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B55EE9CE27F2458300852CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B55EE9D127F2458300852CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B55EE9D327F2458300852CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B55EE9D927F257A000852CC7 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		B55EE9DB27F257AF00852CC7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B55EE9DD27F2581400852CC7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B53128FA27F6389800FDB7C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B55EE9C727F2458300852CC7 /* SceneDelegate.swift */,
+				B55EE9CE27F2458300852CC7 /* Assets.xcassets */,
+				B55EE9C527F2458300852CC7 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B53128FB27F638EF00FDB7C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B53128F627F637CD00FDB7C6 /* Int+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B55EE9B927F2458300852CC7 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +82,15 @@
 		B55EE9C427F2458300852CC7 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				B55EE9C527F2458300852CC7 /* AppDelegate.swift */,
-				B55EE9C727F2458300852CC7 /* SceneDelegate.swift */,
 				B55EE9C927F2458300852CC7 /* ViewController.swift */,
-				B55EE9CB27F2458300852CC7 /* Main.storyboard */,
-				B55EE9CE27F2458300852CC7 /* Assets.xcassets */,
+				B53128FC27F6402C00FDB7C6 /* ThemeOfGame.swift */,
+				B55EE9D927F257A000852CC7 /* Concentration.swift */,
+				B55EE9DD27F2581400852CC7 /* Main.storyboard */,
+				B55EE9DB27F257AF00852CC7 /* Card.swift */,
 				B55EE9D027F2458300852CC7 /* LaunchScreen.storyboard */,
 				B55EE9D327F2458300852CC7 /* Info.plist */,
+				B53128FB27F638EF00FDB7C6 /* Extensions */,
+				B53128FA27F6389800FDB7C6 /* Supporting Files */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -77,6 +105,7 @@
 				B55EE9BE27F2458300852CC7 /* Sources */,
 				B55EE9BF27F2458300852CC7 /* Frameworks */,
 				B55EE9C027F2458300852CC7 /* Resources */,
+				B5033F2127F618950025FA9A /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -127,34 +156,51 @@
 			files = (
 				B55EE9D227F2458300852CC7 /* LaunchScreen.storyboard in Resources */,
 				B55EE9CF27F2458300852CC7 /* Assets.xcassets in Resources */,
-				B55EE9CD27F2458300852CC7 /* Main.storyboard in Resources */,
+				B55EE9DE27F2581400852CC7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5033F2127F618950025FA9A /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B55EE9BE27F2458300852CC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55EE9DA27F257A000852CC7 /* Concentration.swift in Sources */,
 				B55EE9CA27F2458300852CC7 /* ViewController.swift in Sources */,
+				B55EE9DC27F257AF00852CC7 /* Card.swift in Sources */,
+				B53128F727F637CD00FDB7C6 /* Int+Extension.swift in Sources */,
 				B55EE9C627F2458300852CC7 /* AppDelegate.swift in Sources */,
 				B55EE9C827F2458300852CC7 /* SceneDelegate.swift in Sources */,
+				B53128FD27F6402C00FDB7C6 /* ThemeOfGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B55EE9CB27F2458300852CC7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B55EE9CC27F2458300852CC7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B55EE9D027F2458300852CC7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
